@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.agile.bank.account.adapter.persistance.AccountMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-11-27T00:24:44" hostname="DESKTOP-4VEMRHT" time="0.037">
+  <properties/>
+  <testcase name="toModel()" classname="com.agile.bank.account.adapter.persistance.AccountMapperTest" time="0.035"/>
+  <testcase name="toEntity()" classname="com.agile.bank.account.adapter.persistance.AccountMapperTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
