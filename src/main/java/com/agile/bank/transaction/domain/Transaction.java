@@ -15,7 +15,7 @@ public class Transaction {
     private Long id;
     private final Long sourceAccountId;
     private final Long targetAccountId;
-    private final BigDecimal amount;
+    private BigDecimal amount;
     private final Currency currency;
 
 }

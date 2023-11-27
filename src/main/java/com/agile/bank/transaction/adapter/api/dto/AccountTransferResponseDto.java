@@ -20,9 +20,8 @@ public class AccountTransferResponseDto {
     private Long sourceAccountId;
     @NotNull
     private Long targetAccountId;
-    @Positive
     @NotNull
-    private BigDecimal amount;
+    private String amount;
     @NotNull
     private Currency currency;
 

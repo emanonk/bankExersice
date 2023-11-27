@@ -19,7 +19,7 @@ import java.util.Currency;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping(path = "/v1/transaction", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(path = "bank/v1/transaction", produces = APPLICATION_JSON_VALUE)
 @OpenAPIDefinition(info = @Info(title = "Transaction Controller V1"))
 @RequiredArgsConstructor
 public class TransactionController {
@@ -49,9 +49,10 @@ public class TransactionController {
         Transaction transaction = transactionFacade.applyTransfer(transactionRequest);
 
         AccountTransferResponseDto accountTransferResponseDto = AccountTransferResponseDto.builder()
+                .transactionId(transaction.getId())
                 .sourceAccountId(transaction.getSourceAccountId())
                 .targetAccountId(transaction.getTargetAccountId())
-                .amount(transaction.getAmount())
+                .amount(transaction.getAmount().toPlainString())
                 .currency(transaction.getCurrency())
                 .build();
 
@@ -67,9 +68,10 @@ public class TransactionController {
         Transaction transaction = transactionFacade.getTransaction(transactionId);
 
         AccountTransferResponseDto accountTransferResponseDto = AccountTransferResponseDto.builder()
+                .transactionId(transaction.getId())
                 .sourceAccountId(transaction.getSourceAccountId())
                 .targetAccountId(transaction.getTargetAccountId())
-                .amount(transaction.getAmount())
+                .amount(transaction.getAmount().toPlainString())
                 .currency(transaction.getCurrency())
                 .build();
 

@@ -3,7 +3,7 @@ package com.agile.bank.transaction.exception;
 public class TransactionFailedException extends RuntimeException {
 
     private static final String TRANSACTION_FAILED_ERROR_MESSAGE = "Transaction failed, source account : %s and target account : %s, with currency: %s, with error: %s";
-    private static final String SAME_ACCOUNT_TRANSFER_ERROR_MESSAGE = "Transaction failed, source account : %s and target account : %s, transfers are not allowed in the same account";
+    private static final String SAME_ACCOUNT_TRANSFER_ERROR_MESSAGE = "Transaction failed, source account : %s and target account : %s, with error: Transfers are not allowed in the same account";
     private static final String INVALID_CURRENCY = "Invalid currency";
 
 

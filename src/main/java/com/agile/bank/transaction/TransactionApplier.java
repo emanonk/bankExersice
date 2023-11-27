@@ -9,6 +9,8 @@ import com.agile.bank.transaction.exception.TransactionFailedException;
 import com.agile.bank.transaction.port.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 
+import java.math.BigDecimal;
+
 @RequiredArgsConstructor
 public class TransactionApplier {
 
@@ -32,6 +34,10 @@ public class TransactionApplier {
         } catch (Exception ex) {
             throw TransactionFailedException.of(transaction.getSourceAccountId(), transaction.getTargetAccountId(), transaction.getCurrency().getCurrencyCode(), ex.getMessage());
         }
+
+        BigDecimal amount = transaction.getAmount();
+        amount = amount.setScale(2);
+        transaction.setAmount(amount);
 
         TransactionEntity transactionEntity = TransactionMapper.toEntity(transaction);
 

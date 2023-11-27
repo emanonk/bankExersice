@@ -27,7 +27,6 @@ class TransactionApplierTest {
     private static final long SOURCE_ACCOUNT_ID = 1L;
     private static final long TARGET_ACCOUNT_ID = 2L;
     private static final Currency USD = Currency.getInstance("USD");
-
     private static final BigDecimal TRANSFER_AMOUNT = new BigDecimal("30.00");
 
     @Mock
@@ -89,7 +88,7 @@ class TransactionApplierTest {
                 .build();
 
         assertThatThrownBy(() ->  transactionApplier.apply(transactionToBeSaved))
-                .hasMessage("Transaction failed, source account : 1 and target account : 1, transfers are not allowed in the same account");
+                .hasMessage("Transaction failed, source account : 1 and target account : 1, with error: Transfers are not allowed in the same account");
 
     }
 

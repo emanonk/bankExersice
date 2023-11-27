@@ -20,8 +20,8 @@ public class ControllerExceptionHandler {
     }
 
     @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ApiResponse(responseCode = "400", description = "Transaction Not Found")
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ApiResponse(responseCode = "404", description = "Transaction Not Found")
     public AccountTransferFailedResponseDto transactionNotFound(TransactionNotFoundException ex) {
         return new AccountTransferFailedResponseDto(ex.getMessage());
     }
