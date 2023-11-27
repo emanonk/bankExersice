@@ -43,6 +43,9 @@ class BankApplicationTests {
 	- Did not log anything on purpose, as it is a financial service and logs can not contain details about customer data
 	- I did not implement any api adapter in the account package, as there is no requirement for that functionality
 
+
+	http://localhost:8080/swagger-ui/index.html
+
 	 */
 
 

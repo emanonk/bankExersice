@@ -1,16 +1,12 @@
 package com.agile.bank.transaction;
 
 import com.agile.bank.account.AccountFacade;
-import com.agile.bank.account.exception.AccountNotFoundException;
-import com.agile.bank.common.AmountValidationException;
 import com.agile.bank.common.AmountValidator;
 import com.agile.bank.transaction.domain.Transaction;
 import com.agile.bank.transaction.exception.TransactionFailedException;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Currency;
 
 @Service
 @RequiredArgsConstructor

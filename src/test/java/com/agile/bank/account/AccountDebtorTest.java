@@ -92,7 +92,7 @@ class AccountDebtorTest {
         BigDecimal debitAmount = new BigDecimal("-50.0");
 
         assertThatThrownBy(() -> accountDebtor.debit(account, debitAmount))
-                .hasMessage("Debit request for account with id: 1 failed, amount should be positive with maximum two decimals");
+                .hasMessage("Debit request for account with id: 1 failed, with error: Amount should be positive and with two decimals");
     }
 
 

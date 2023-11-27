@@ -11,12 +11,36 @@ import java.time.Clock;
 class AccountConfiguration {
 
     @Bean
-    AccountFacade accountFacade() {
-        AccountRepository accountRepository = new InMemoryAccountRepositoryAdapter();
+    AccountRepository accountRepository() {
+        return new InMemoryAccountRepositoryAdapter();
+    }
+
+    @Bean
+    AccountCreator accountCreator(AccountRepository accountRepository) {
+        return new AccountCreator(Clock.systemDefaultZone(), accountRepository);
+    }
+
+    @Bean
+    AccountGetter accountGetter(AccountRepository accountRepository) {
+        return new AccountGetter(accountRepository);
+    }
+
+    @Bean
+    AccountDebtor accountDebtor(AccountRepository accountRepository) {
+        return new AccountDebtor(accountRepository);
+    }
+
+    @Bean
+    AccountCreditor accountCreditor(AccountRepository accountRepository) {
+        return new AccountCreditor(accountRepository);
+    }
+
+    @Bean
+    AccountFacade accountFacade(AccountCreator accountCreator, AccountGetter accountGetter, AccountDebtor accountDebtor, AccountCreditor accountCreditor) {
         return new AccountFacadeImpl(
-                new AccountCreator(Clock.systemDefaultZone(), accountRepository),
-                new AccountGetter(accountRepository),
-                new AccountDebtor(accountRepository),
-                new AccountCreditor(accountRepository));
+                accountCreator,
+                accountGetter,
+                accountDebtor,
+                accountCreditor);
     }
 }

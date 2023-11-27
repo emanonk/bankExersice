@@ -77,6 +77,6 @@ class AccountCreditorTest {
         BigDecimal creditAmount = new BigDecimal("-20.0");
 
         assertThatThrownBy(() -> accountCreditor.credit(account, creditAmount))
-                .hasMessage("Credit request for account with id: 1 failed, amount should be positive with maximum two decimals");
+                .hasMessage("Credit request for account with id: 1 failed, with error: Amount should be positive and with two decimals");
     }
 }

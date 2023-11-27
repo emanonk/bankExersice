@@ -81,6 +81,6 @@ class AccountCreatorTest {
         BigDecimal depositAmount = new BigDecimal("10.0");
 
         assertThatThrownBy(() -> accountCreator.createAccount(depositAmount, usd))
-                .hasMessage("Initial deposit request for account, amount should be positive with maximum two decimals");
+                .hasMessage("New account request failed, with error: Amount should be positive and with two decimals");
     }
 }

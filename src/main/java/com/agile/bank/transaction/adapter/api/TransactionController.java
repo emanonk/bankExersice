@@ -21,7 +21,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(path = "/v1/transaction", produces = APPLICATION_JSON_VALUE)
-@OpenAPIDefinition(info = @Info(title = "Transaction Controller V1"), servers = @Server(url = "/"))
+@OpenAPIDefinition(info = @Info(title = "Transaction Controller V1"))
 @RequiredArgsConstructor
 public class TransactionController {
 
@@ -29,7 +29,7 @@ public class TransactionController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     @ResponseBody
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<AccountTransferResponseDto> createAccount(
             @RequestBody @Valid AccountTransferRequestDto accountTransferRequestDto) {
 

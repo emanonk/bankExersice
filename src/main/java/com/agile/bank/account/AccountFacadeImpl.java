@@ -21,24 +21,9 @@ public class AccountFacadeImpl implements AccountFacade {
     private final AccountDebtor accountDebtor;
     private final AccountCreditor accountCreditor;
 
-    //TODO change field to dtos in here
-    //TODO validate the request dtos everywhere
-    //TODO new account should have positive balance
+    //TODO create unit, acceptance, controller, integration tests
 
-    //TODO consider moving the positive balance thing from the transaction to the account.debit
-    // initially I thought that the transaction should have positive balance,
-    // but then in the exercise the anytime balance should be positive so that is the responsibility of the account to raise it not the transaction.
 
-    //TODO build responses
-
-    //TODO remove the AccountController
-
-    //TODO add the trasnactionController
-
-    //TODO create unit, acceptance, integration tests
-    //TODO consider adding a swagger, its only one controller anyway
-    //TODO move the signleton init inside the inmemorydb and then create 2 interfaces, one for accountManagement, and one for transactionManagement
-    //TODO remove any public that is not needed
 
 
     @Override
