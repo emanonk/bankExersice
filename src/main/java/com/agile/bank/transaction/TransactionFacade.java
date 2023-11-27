@@ -5,5 +5,5 @@ import com.agile.bank.transaction.domain.Transaction;
 public interface TransactionFacade {
 
     Transaction applyTransfer(Transaction transaction);
-    Transaction getAccount(Long transactionId);
+    Transaction getTransaction(Long transactionId);
 }

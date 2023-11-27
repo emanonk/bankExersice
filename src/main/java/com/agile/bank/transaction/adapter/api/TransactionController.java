@@ -8,7 +8,6 @@ import com.agile.bank.transaction.domain.Transaction;
 import com.agile.bank.transaction.exception.TransactionFailedException;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.annotations.servers.Server;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,7 +29,7 @@ public class TransactionController {
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<AccountTransferResponseDto> createAccount(
+    public ResponseEntity<AccountTransferResponseDto> applyTransaction(
             @RequestBody @Valid AccountTransferRequestDto accountTransferRequestDto) {
 
         Currency currency;
@@ -48,6 +47,24 @@ public class TransactionController {
                 .build();
 
         Transaction transaction = transactionFacade.applyTransfer(transactionRequest);
+
+        AccountTransferResponseDto accountTransferResponseDto = AccountTransferResponseDto.builder()
+                .sourceAccountId(transaction.getSourceAccountId())
+                .targetAccountId(transaction.getTargetAccountId())
+                .amount(transaction.getAmount())
+                .currency(transaction.getCurrency())
+                .build();
+
+        return ResponseEntity.ok(accountTransferResponseDto);
+    }
+
+    @GetMapping(path = "/{transactionId}", consumes = APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<AccountTransferResponseDto> getTransaction(
+            @PathVariable("transactionId") Long transactionId) {
+
+        Transaction transaction = transactionFacade.getTransaction(transactionId);
 
         AccountTransferResponseDto accountTransferResponseDto = AccountTransferResponseDto.builder()
                 .sourceAccountId(transaction.getSourceAccountId())

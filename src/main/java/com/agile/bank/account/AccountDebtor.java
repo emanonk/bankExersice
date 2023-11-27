@@ -17,7 +17,7 @@ class AccountDebtor {
 
     private final AccountRepository accountRepository;
 
-    void debit(Account account, BigDecimal debitAmount) throws InsufficientBalanceException, InvalidRequestAmountException {
+    void debit(Account account, BigDecimal debitAmount) {
         try {
             AmountValidator.shouldBePositiveWithTwoDecimals(debitAmount);
         } catch (AmountValidationException ex) {

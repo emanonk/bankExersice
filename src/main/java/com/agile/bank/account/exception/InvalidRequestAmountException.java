@@ -1,6 +1,6 @@
 package com.agile.bank.account.exception;
 
-public class InvalidRequestAmountException extends Exception {
+public class InvalidRequestAmountException extends RuntimeException {
 
     private static final String INVALID_CREDIT_REQUEST_ERROR_MESSAGE = "Credit request for account with id: %s failed, with error: %s";
 

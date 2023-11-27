@@ -4,7 +4,6 @@ import com.agile.bank.account.adapter.persistance.AccountEntity;
 import com.agile.bank.account.domain.Account;
 import com.agile.bank.account.exception.InvalidRequestAmountException;
 import com.agile.bank.account.port.AccountRepository;
-import com.agile.bank.common.AmountValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -37,7 +36,6 @@ class AccountCreatorTest {
 
     @Test
     void shouldCreateAccountSuccessfully() throws InvalidRequestAmountException {
-        //given
         Instant instant = Instant.parse("2023-11-26T16:00:45.00Z");
         when(clock.instant()).thenReturn(instant);
         when(clock.getZone()).thenReturn(ZoneId.of("UTC"));
@@ -61,10 +59,8 @@ class AccountCreatorTest {
 
         when(accountRepository.save(createdAccountEntity)).thenReturn(savedAccountEntity);
 
-        //when
         Account account = accountCreator.createAccount(depositAmount, usd);
 
-        //then
         Account expectedAccount = Account.builder()
                 .id(DB_ID)
                 .currency(usd)

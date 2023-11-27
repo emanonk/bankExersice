@@ -1,6 +1,5 @@
 package com.agile.bank.account.adapter.persistance;
 
-import com.agile.bank.account.domain.Account;
 import com.agile.bank.account.port.AccountRepository;
 
 import java.util.Map;

@@ -14,11 +14,11 @@ public interface AccountFacade {
 
     Account getAccount(Long accountId) throws AccountNotFoundException;
 
-    void verifyAccountWithCurrencyExists(Long accountId, Currency currency) throws AccountNotFoundException;
+    void verifyAccountWithCurrencyExists(Long accountId, Currency currency);
 
-    void debitAccount(Long accountId, BigDecimal amount) throws InvalidRequestAmountException, InsufficientBalanceException, AccountNotFoundException;
+    void debitAccount(Long accountId, BigDecimal amount);
 
-    void creditAccount(Long accountId, BigDecimal amount) throws InvalidRequestAmountException, AccountNotFoundException;
+    void creditAccount(Long accountId, BigDecimal amount);
 
     BigDecimal getAccountBalance(Long accountId) throws AccountNotFoundException;
 

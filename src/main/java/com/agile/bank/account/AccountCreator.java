@@ -20,7 +20,7 @@ class AccountCreator {
     private final Clock clock;
     private final AccountRepository accountRepository;
 
-    Account createAccount(BigDecimal firstDeposit, Currency currency) throws InvalidRequestAmountException {
+    Account createAccount(BigDecimal firstDeposit, Currency currency) {
         try {
             AmountValidator.shouldBePositiveWithTwoDecimals(firstDeposit);
         } catch (AmountValidationException ex) {

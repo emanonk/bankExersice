@@ -12,9 +12,71 @@ class BankApplicationTests {
 	void contextLoads() {
 
 
-//		currency.
-		System.out.println(Currency.getAvailableCurrencies());
 	}
+
+	@Test
+	void moneyTransferBetweenTwoAccounts() {
+
+//		Given source account exists
+
+//		and target account exists
+
+//		and source account has a balance greater or equal to the transaction amount
+
+//		When a transaction request is received
+
+//		Then the balance of source account should be debited
+
+//		and the balance of target account should be credited
+
+	}
+
+	@Test
+	void  insufficientBalanceToProcessMoneyTransfer() {
+
+//		Given source account exists
+
+//		and target account exists
+
+//		and source account has a balance less than the transaction amount
+
+//		When a transaction request is received
+
+//		Then the balance of source account should remain the same and the
+
+//		balance of target account should remain the sameand the
+
+//		client of the API should receive an error
+
+	}
+
+	@Test
+	void transferBetweenSameAccount() {
+
+//		Given source account exists
+
+//		and both source and target accounts are the same
+//		When a transaction request is received
+
+//		Then the balance of source account should remain the same
+
+//		and the client of the API should receive an error
+
+	}
+
+	@Test
+	void oneOrMoreOfTheAccountsDoesNotExist() {
+//		Given source or target account do not exist
+
+//		When a transaction request is received
+
+//		Then the balance of the existing account should remain the same
+
+//		and the client of the API should receive an error
+	}
+
+
+
 
 	/*
 	POST /v1/accounts/

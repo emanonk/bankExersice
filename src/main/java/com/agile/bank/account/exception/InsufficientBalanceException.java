@@ -1,6 +1,6 @@
 package com.agile.bank.account.exception;
 
-public class InsufficientBalanceException extends Exception {
+public class InsufficientBalanceException extends RuntimeException {
     private static final String INSUFFICIENT_BALANCE_ERROR_MESSAGE = "Account with id: %s has insufficient balance for the transfer request";
     public InsufficientBalanceException(String message) {
         super(message);

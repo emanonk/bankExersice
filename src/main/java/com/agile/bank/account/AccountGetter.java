@@ -14,7 +14,7 @@ class AccountGetter {
 
     private final AccountRepository accountRepository;
 
-    Account getAccount(Long id) throws AccountNotFoundException {
+    Account getAccount(Long id) {
         Optional<AccountEntity> accountEntity = accountRepository.findById(id);
         return accountEntity.map(AccountMapper::toModel)
                 .orElseThrow(() -> AccountNotFoundException.of(id));

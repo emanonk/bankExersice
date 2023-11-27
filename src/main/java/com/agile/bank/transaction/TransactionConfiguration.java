@@ -1,11 +1,8 @@
 package com.agile.bank.transaction;
 
 import com.agile.bank.account.AccountFacade;
-import com.agile.bank.account.adapter.persistance.InMemoryAccountRepositoryAdapter;
-import com.agile.bank.account.port.AccountRepository;
 import com.agile.bank.transaction.adapter.persistance.InMemoryTransactionRepositoryAdapter;
 import com.agile.bank.transaction.port.TransactionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,8 +16,8 @@ class TransactionConfiguration {
     }
 
     @Bean
-    TransactionSaver transactionSaver(TransactionRepository transactionRepository) {
-        return new TransactionSaver(transactionRepository);
+    TransactionApplier transactionSaver(AccountFacade accountFacade, TransactionRepository transactionRepository) {
+        return new TransactionApplier(accountFacade, transactionRepository);
     }
 
     @Bean
@@ -29,11 +26,9 @@ class TransactionConfiguration {
     }
 
     @Bean
-    TransactionFacade transactionFacade(AccountFacade accountFacade, TransactionSaver transactionSaver, TransactionGetter transactionGetter) {
-        TransactionRepository transactionRepository = new InMemoryTransactionRepositoryAdapter();
+    TransactionFacade transactionFacade( TransactionApplier transactionApplier, TransactionGetter transactionGetter) {
         return new TransactionFacadeImpl(
-                accountFacade,
-                transactionSaver,
+                transactionApplier,
                 transactionGetter);
     }
 }
